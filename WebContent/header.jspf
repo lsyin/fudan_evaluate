@@ -1,0 +1,49 @@
+<%@ page language="java" pageEncoding="utf-8"%>
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container">
+      <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="brand" href="<%=response.encodeURL("index.jsp")%>">NLPCC2015-Evaluation</a>
+      <div class="nav-collapse collapse">
+        <ul class="nav">
+         
+          <li><a href="<%=response.encodeURL("upload.jsp")%>">Upload Test Files</a></li>
+           <li><a href="<%=response.encodeURL("segLeaderBoard.jsp")%>">Seg-LeaderBoard</a></li>
+           <li><a href="<%=response.encodeURL("posLeaderBoard.jsp")%>">Pos-LeaderBoard</a></li>
+           <li><a href="<%=response.encodeURL("document.jsp")%>">Help</a></li>
+        </ul>
+        <form class="navbar-form pull-right">
+        	<c:choose>
+				<c:when test="${sessionScope.userName != null}">
+					<div align="right">
+						<p class="navbar-text">welcome，${sessionScope.userName}&nbsp;
+						<button type="button" class="btn" onclick="window.location.href='<%=response.encodeURL("profile.do")%>'">
+							accomplish your profile
+						</button>
+						<button type="button" class="btn" onclick="window.location.href='<%=response.encodeURL("logout.do")%>'">
+							exit
+						</button>
+						</p>
+					</div>						
+				</c:when>
+				<c:otherwise>
+					<div align="right">
+						<button type="button" class="btn" onclick="window.location.href='login.jsp'">
+						    Sign in	
+						</button>
+						<button type="button" class="btn" onclick="window.location.href='register.jsp'">
+							Sign up
+						</button>
+					</div>
+				</c:otherwise>
+			</c:choose>
+        </form>
+      </div><!--/.nav-collapse -->
+    </div>
+  </div>
+</div>  
